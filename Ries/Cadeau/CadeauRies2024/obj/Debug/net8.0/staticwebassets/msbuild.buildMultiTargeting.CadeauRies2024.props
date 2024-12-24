@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CadeauRies2024.props" />
+</Project>

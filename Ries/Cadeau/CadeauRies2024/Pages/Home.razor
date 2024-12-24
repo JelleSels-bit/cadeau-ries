@@ -1,0 +1,180 @@
+﻿@page "/Home"
+<link rel="stylesheet" href="/css/app.css">
+<style>
+    html, body {
+        height: 100%;
+        overflow-y: auto;
+    }
+    
+    .sidebar {
+        width: 100%;
+        min-height: 100%;
+    }
+
+    .home-container {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .container {
+        min-height: 100%;
+        height: auto;
+        overflow-y: visible;
+    }
+
+    .row {
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+</style>
+
+
+<img src="/images/kerstkrans.jpg" class="img-fluid" alt="Kerst Krans">
+
+<h1 class="ps-3">Hallo Ries, welkom bij je kerst cadeau van 2024!</h1>
+
+<div class="Hero fs-5">
+    "The day you take the leap is the day you begin to live."
+</div>
+
+
+    <div class="container ">
+
+
+
+        <div class="row mt-3">
+
+
+            <div class="col-lg-6">
+
+                <h2 class="text-dark">Cadeau:</h2>
+
+                <p class="text-dark">Je staat waarschijnlijk al te popelen om te weten wat je cadeau is, en dat
+                    begrijpen we helemaal!
+                    Maar
+                    voordat je kunt genieten van de verrassing, moet je eerst een kleine vragenlijst invullen. Deze
+                    helpt ons met het weten of je cadeau bij je past.</p>
+
+
+                <div class="form-check">
+                    <input @bind="SportiefCheck" class="form-check-input" type="checkbox" value=""
+                        id="flexCheckDefault">
+                    <label class="form-check-label text-dark" for="flexCheckDefault">
+                        ben jij sportief?
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input @bind="durfalCheck" class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label text-dark" for="flexCheckDefault">
+                        ben jij een echte durfal?
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input @bind="adrenalineCheck" class="form-check-input" type="checkbox" value=""
+                        id="flexCheckChecked">
+                    <label class="form-check-label text-dark" for="flexCheckDefault">
+                        ben jij een adrenaline junkie?
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                @if (SportiefCheck == true && durfalCheck == true && adrenalineCheck == true)
+                {
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MHtfhX1txcU?si=RbNwzA7wOD4szSaL"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                }
+                else
+                {
+                    <img src="/images/dezenoten.jpg" alt="foto hier" class="img-fluid">
+                }
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <hr>
+
+            <h2>ben je toch niet zeker?</h2>
+            <div class="col"> <button @onclick="Check" class="btn btn-danger">Liever alternatieven!</button></div>
+
+            @if (alternatiefCheck == true)
+            {
+     <div class="row mt-3">
+    <div class="col-lg-4 d-flex">
+        <div class="card flex-fill">
+            <img src="/images/raften.jpg" class="card-img-top img-fluid h-75" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Raften in de ardennen!</h5>
+                <p class="card-text">Ga op een spetterend avontuur in de vaarwateren van de ardennen.</p>
+                <a target="_blank" href="https://www.survivallife.be/activiteiten/raften" class="btn btn-danger mt-auto">Graag!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 d-flex">
+        <div class="card flex-fill">
+            <img src="/images/duiken.jpg" class="card-img-top img-fluid h-75" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Duiken!</h5>
+                <p class="card-text">Verken het spannende eco systeem in een belgische duik faciliteit</p>
+                <a href="https://www.duikersgids.nl/duikregios/duiken-in-belgie" target="_blank" class="btn btn-danger mt-auto">Graag!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 d-flex">
+        <div class="card flex-fill">
+            <img src="/images/Choose-Yourself.jpg" class="card-img-top img-fluid h-75" alt="...">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Kies zelf iets</h5>
+                <p class="card-text">Wil je toch liever iets anders doen? zeg het maar.</p>
+                <a href="#" class="btn btn-danger mt-auto">Graag!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+            }
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+@code
+{
+    public bool SportiefCheck { get; set; }
+    public bool durfalCheck { get; set; }
+    public bool adrenalineCheck { get; set; }
+    public bool alternatiefCheck { get; set; }
+    public string Feedback = "";
+
+    public void Check()
+    {
+        if (alternatiefCheck == false)
+        {
+            alternatiefCheck = true;
+        }
+        else
+        {
+            alternatiefCheck = false;
+        }
+
+    }
+
+
+}

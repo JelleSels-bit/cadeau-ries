@@ -1,0 +1,10 @@
+/* Add or modify these styles */
+html, body {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar {
+    overflow-y: auto;
+    height: 100%;
+} 
